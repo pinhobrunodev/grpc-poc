@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.pinhobrunodev.service1";
+option java_outer_classname = "CreateEventOnTrackerServiceProto";
+
+message Event {
+  string eventId = 1;
+  string eventName = 2;
+  string eventImgLink = 3;
+  string eventAddress = 4;
+  string lat = 5;
+  string lng = 6;
+  repeated string categories = 7;
+}
+
+message EventRequest {
+  Event event = 1;
+}
+
+message EventResponse {
+  string result = 1;
+}
+
+service EventService {
+  rpc CreateEvent(EventRequest) returns (EventResponse);
+}
